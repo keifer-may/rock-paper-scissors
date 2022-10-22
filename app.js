@@ -1,7 +1,16 @@
-const choices = [`Rock`, `Paper`, `Scissors`]
+const choices = [`Rock`, `Paper`, `Scissors`];
 
-function getComputerChoice () {
-    return choices[Math.floor(Math.random() * choices.length)]
+function getComputerChoice() {
+  return choices[Math.floor(Math.random() * choices.length)];
 }
 
-console.log(getComputerChoice())
+getComputerChoice();
+
+function getPlayerChoice() {
+  let choice = prompt(`Please pick from rock, paper or scissors: `);
+  let titleCase = choice.slice(0, 1).toUpperCase + choice.slice(1).toLowerCase;
+  return titleCase;
+}
+
+getPlayerChoice();
+
