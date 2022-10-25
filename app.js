@@ -1,5 +1,5 @@
 const choices = [`Rock`, `Paper`, `Scissors`];
-const buttons = document.querySelectorAll('.game-buttons #button');
+const buttons = document.querySelectorAll('.game-buttons #button img');
 const result = document.querySelector('.results h2');
 let computerScore = 0;
 let playerScore = 0;
@@ -9,6 +9,7 @@ computerResults.textContent = `Computer: ${computerScore}`;
 playerResults.textContent = `Player: ${playerScore}`;
 const gameover = 5;
 const finalScore = document.querySelector('.final-score');
+let playing = true;
 
 function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
@@ -65,23 +66,17 @@ function playRound(playerSelection, computerSelection) {
 
 buttons.forEach(button => {
   button.addEventListener('click', e => {
-    if (playerScore < gameover && computerScore < gameover){
+      if (playing === true){
       let play = playRound(e.target.classList.value, getComputerChoice());
       result.textContent = play;
       computerResults.textContent = `Computer: ${computerScore}`;
       playerResults.textContent = `Player: ${playerScore}`;
-    }
-    else if (playerScore === gameover) {
-      computerResults.textContent = `Computer: ${computerScore}`;
-      playerResults.textContent = `Player: ${playerScore}`;
-      finalScore.textContent = 'You have triumphed!';
-      button.removeEventListener('click', e);
-    }
-    else if (computerScore === gameover) {
-      computerResults.textContent = `Computer: ${computerScore}`;
-      playerResults.textContent = `Player: ${playerScore}`;
-      finalScore.textContent = 'You lost. Where can we find a hero?';
-      button.removeEventListener('click', e);
-    }
-  });
-});
+      if (computerScore === gameover){
+        finalScore.textContent = 'You lost. Where can we find a hero?';
+        playing = false;
+      }
+      else if (playerScore === gameover) {
+        finalScore.textContent = 'You have triumphed!';
+        playing = false;
+      }
+    }})});
