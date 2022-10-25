@@ -1,5 +1,5 @@
 const choices = [`Rock`, `Paper`, `Scissors`];
-const buttons = document.querySelectorAll('.game-buttons button');
+const buttons = document.querySelectorAll('.game-buttons #button');
 const result = document.querySelector('.results h2');
 let computerScore = 0;
 let playerScore = 0;
