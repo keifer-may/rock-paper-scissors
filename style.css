@@ -79,3 +79,24 @@ button{
   margin: 0;
   align-self: center;
 }
+
+.footer{
+  background-color: #7d8491;
+  color: black;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1;
+  justify-content: center;
+  align-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+.github{
+  transition: transform 0.3s ease-in-out;
+}
+
+.github:hover{
+  transform: rotate(360deg) scale(1.1);
+}
